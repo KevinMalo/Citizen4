@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../../services/crud.service';
-import { Observable } from '../../../../node_modules/rxjs';
+import { CrudService } from '../../services/crud.service'; // Importamos el servicio
 
 @Component({
   selector: 'app-patients',
@@ -9,16 +8,24 @@ import { Observable } from '../../../../node_modules/rxjs';
 })
 export class PatientsComponent implements OnInit {
 
-  categories: Observable<any[]>;
+  public patients = []; // Aqui guardaremos todos los datos obtenidos de afs
 
+  // Renombramos con un alias al servicio (buena practica el guion bajo al inicio)
   constructor( public _crudService: CrudService  ) {
 
   }
 
   ngOnInit() {
 
-    this.categories = this._crudService.getCategories();
-    console.log(this.categories);
+    this._crudService.getPatients().subscribe( (patientsSnapshot) => {
+      this.patients = [];
+      patientsSnapshot.forEach((patientData: any) => {
+        this.patients.push({
+          id: patientData.payload.doc.id,
+          data: patientData.payload.doc.data()
+        });
+      });
+    });
 
   }
 

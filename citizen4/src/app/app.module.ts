@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 // Imports Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -14,8 +13,6 @@ import { PatientsComponent } from './components/patients/patients.component';
 
 // Servicios
 import { CrudService } from './services/crud.service';
-import { PruebaService } from './services/prueba.service';
-
 
 @NgModule({
   declarations: [
@@ -24,11 +21,10 @@ import { PruebaService } from './services/prueba.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence() /// Guardar datos offline
   ],
-  providers: [CrudService, PruebaService],
+  providers: [CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

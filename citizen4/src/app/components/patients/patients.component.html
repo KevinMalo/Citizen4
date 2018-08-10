@@ -1,6 +1,12 @@
-<p>Work</p>
+<p>Componente patiens ON</p>
 
-
-<div *ngFor="let category of categories | async">
-  {{category.value}}
+<div *ngFor="let patient of patients">
+  <div>
+    <img [src]="patient.data.url" width="200">
+  </div>
+  <div>
+    <p>Nombre: {{patient.data.nombre}}</p>
+    <p>Documento: {{patient.data.documento}}</p>
+    <p>Ciudad: {{patient.data.ciudad}}</p>
+  </div>
 </div>
