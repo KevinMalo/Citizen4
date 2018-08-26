@@ -2,10 +2,12 @@
   <mat-toolbar-row>
     <span>CITIZEN4</span>
     <span class="example-spacer"></span>
-    <button mat-raised-button matTooltip="Añade un nuevo paciente a la base de datos">
+    <button mat-raised-button matTooltip="Añade un nuevo paciente a la base de datos"
+            (click)="loadAddPatient()" >
       <mat-icon>add_circle_outline</mat-icon> Añadir paciente
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
-
+<p>{{loaded}}</p>
+<app-add-patient *ngIf="loaded"></app-add-patient>
 <app-patients></app-patients>

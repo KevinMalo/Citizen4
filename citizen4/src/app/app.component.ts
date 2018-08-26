@@ -7,7 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  loaded = false;
+
   constructor() {
     }
+
+    loadAddPatient() {
+
+      if (this.loaded === false) {
+        this.loaded = true;
+      } else if (this.loaded === true) {
+        this.loaded = false;
+      }
+
+     }
 
 }

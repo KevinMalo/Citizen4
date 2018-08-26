@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,22 +16,27 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 // Configuracion Firebase
 import { environment } from '../environments/environment';
 
+// Componentes
 import { AppComponent } from './app.component';
 import { PatientsComponent } from './components/patients/patients.component';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
 
 // Servicios
 import { CrudService } from './services/crud.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    PatientsComponent
+    PatientsComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence() /// Guardar datos offline
   ],
