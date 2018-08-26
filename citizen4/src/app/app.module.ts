@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+
+// Flex Layout
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 // Imports Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -21,6 +28,9 @@ import { CrudService } from './services/crud.service';
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence() /// Guardar datos offline
   ],
