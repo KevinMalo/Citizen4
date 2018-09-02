@@ -23,13 +23,18 @@ import { AddPatientComponent } from './components/add-patient/add-patient.compon
 
 // Servicios
 import { CrudService } from './services/crud.service';
+import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientsComponent,
-    AddPatientComponent
+    AddPatientComponent,
+    EditPatientComponent
+  ],
+  entryComponents: [
+    EditPatientComponent
   ],
   imports: [
     BrowserModule,
