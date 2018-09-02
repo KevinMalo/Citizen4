@@ -1,6 +1,6 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+  <mat-step [stepControl]="nombreFormGroup">
+    <form [formGroup]="nombreFormGroup">
       <ng-template matStepLabel>Ingrese su nombre</ng-template>
       <mat-form-field>
         <input matInput placeholder="Nombre y apellido" formControlName="nombre" required>
@@ -10,50 +10,50 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+  <mat-step [stepControl]="documentoFormGroup">
+    <form [formGroup]="documentoFormGroup">
       <ng-template matStepLabel>Ingrese su documento</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Documento" formControlName="secondCtrl" required>
+        <input matInput placeholder="Documento" formControlName="documento" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Atrás</button>
+        <button mat-button matStepperPrevious>Volver</button>
         <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup">
+  <mat-step [stepControl]="ciudadFormGroup">
+    <form [formGroup]="ciudadFormGroup">
       <ng-template matStepLabel>Ingrese su ciudad</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Ciudad" formControlName="thirdCtrl" required>
+        <input matInput placeholder="Ciudad" formControlName="ciudad" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Atrás</button>
+        <button mat-button matStepperPrevious>Volver</button>
         <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="fourthFormGroup">
-    <form [formGroup]="fourthFormGroup">
+  <mat-step [stepControl]="sintomaFormGroup">
+    <form [formGroup]="sintomaFormGroup">
       <ng-template matStepLabel>Ingrese sus síntomas</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Síntomas" formControlName="fourthCtrl" required>
+        <input matInput placeholder="Síntomas" formControlName="sintoma" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Atrás</button>
+        <button mat-button matStepperPrevious>Volver</button>
         <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="fifthFormGroup">
-    <form [formGroup]="fifthFormGroup">
+  <mat-step [stepControl]="urlFormGroup">
+    <form [formGroup]="urlFormGroup">
       <ng-template matStepLabel>Ingrese la url</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Url" formControlName="fifthCtrl" required>
+        <input matInput placeholder="Url" formControlName="url" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Atrás</button>
+        <button mat-button matStepperPrevious>Volver</button>
         <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
@@ -62,9 +62,9 @@
     <ng-template matStepLabel>Finalizar</ng-template>
     Has terminado
     <div>
-      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperPrevious>Volver</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
-      <button mat-button (click)="loger()">Enviar</button>
+      <button mat-button (click)="dataForm()">Enviar</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

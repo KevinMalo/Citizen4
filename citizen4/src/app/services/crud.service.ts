@@ -23,6 +23,7 @@ export class CrudService {
     nombre: string,
     documento: string,
     ciudad: string,
+    sintomas: string,
     url: string}) {
     return this.afs.collection('patients').add(data);
   }
@@ -39,11 +40,17 @@ export class CrudService {
 
   // Actualiza un paciente
   public updatePatient(documentId: string, data: {
-    nombre?: string,
-    documento?: string,
-    ciudad?: string,
-    url?: string}) {
+    nombre: string,
+    documento: string,
+    ciudad: string,
+    sintomas: string,
+    url: string}) {
     return this.afs.collection('patients').doc(documentId).set(data);
+  }
+
+  // Borrar un paciente
+  public deletePatient(documentId: string) {
+    return this.afs.collection('patients').doc(documentId).delete();
   }
 
 }

@@ -10,6 +10,28 @@ export class PatientsComponent implements OnInit {
 
   public patients = []; // Aqui guardaremos todos los datos obtenidos de afs
 
+
+  deletePaciente(documentId) {
+
+    this._crudService.deletePatient( documentId ).then(() => {
+      console.log('Documento eliminado!');
+    }, (error) => {
+      console.error(error);
+    });
+
+  }
+
+  editarPaciente(documentId) {
+
+    this._crudService.deletePatient( documentId ).then(() => {
+      console.log('Documento eliminado!');
+    }, (error) => {
+      console.error(error);
+    });
+
+  }
+
+
   // Renombramos con un alias al servicio (buena practica el guion bajo al inicio)
   constructor( public _crudService: CrudService  ) {
 
