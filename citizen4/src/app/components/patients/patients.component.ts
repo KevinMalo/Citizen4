@@ -16,6 +16,7 @@ export class PatientsComponent implements OnInit {
 
   public patients = []; // Aqui guardaremos todos los datos obtenidos de afs
 
+  // Esta funcion recibe el Id del documento a eliminar y lo envía al CRUD.
   deletePaciente(documentId) {
 
     this._crudService.deletePatient( documentId ).then(() => {
@@ -26,6 +27,8 @@ export class PatientsComponent implements OnInit {
 
   }
 
+  // OpenDialog abre un Modal en donde se mostrará nuestro formulario de edición.
+  // La función recibe dos parametros, el Id del documento y los datos de este documento.
   openDialog( documentId, documentData ) {
 
     const dialogConfig = new MatDialogConfig();
@@ -35,6 +38,7 @@ export class PatientsComponent implements OnInit {
       data: documentData
     };
 
+    // Configuramos el componente que queremos abrir dentro de nuestro Modal y su configuración.
     const dialogRef = this.dialog.open(EditPatientComponent, dialogConfig);
 
     dialogRef.afterClosed();
