@@ -20,6 +20,9 @@ export class EditPatientComponent implements OnInit {
                 private _crudService: CrudService,
                 private dialogRef: MatDialogRef<EditPatientComponent>,
 
+                // Trae los datos del paciente que seteamos en pattients.component y los
+                // asigna en una variable para luego llenar el formulario
+                // con los datos actuales de ese documento.
                 @Inject(MAT_DIALOG_DATA) data ) {
 
                   this.documentId = data.id;
@@ -30,7 +33,7 @@ export class EditPatientComponent implements OnInit {
 
   actualizarPaciente() {
 
-    // Obtenemos los valores del formulario
+    // Obtenemos los nuevos valores del formulario
 
     const formValues = {
       nombre: this.editarFormGroup.value.nombre,
@@ -40,19 +43,21 @@ export class EditPatientComponent implements OnInit {
       url: this.editarFormGroup.value.url
     };
 
+    // Enviamos esos valores a nuestro CRUD para que actulice la BD
+
      this._crudService.updatePatient(this.documentId, formValues);
 
+     // Esta función cierra nuestro Modal
      this.dialogRef.close();
 
   }
 
   closeDialog() {
+    // Esta función cierra nuestro Modal
       this.dialogRef.close();
   }
 
   ngOnInit() {
-
-    console.log(this.documentId);
 
     this.editarFormGroup = this._formBuilder.group({
       nombre: ['', Validators.required],
