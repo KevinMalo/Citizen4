@@ -11,6 +11,9 @@ import { EditPatientComponent } from '../edit-patient/edit-patient.component';
 })
 export class PatientsComponent implements OnInit {
 
+  // Renombramos con un alias al servicio (buena practica el guion bajo al inicio)
+  constructor( public _crudService: CrudService, private dialog: MatDialog  ) {}
+
   public patients = []; // Aqui guardaremos todos los datos obtenidos de afs
 
   deletePaciente(documentId) {
@@ -23,13 +26,16 @@ export class PatientsComponent implements OnInit {
 
   }
 
-  // Renombramos con un alias al servicio (buena practica el guion bajo al inicio)
-  constructor( public _crudService: CrudService, private dialog: MatDialog  ) {}
+  openDialog( documentId, documentData ) {
 
-  editarPaciente( documentId ) {
-    console.log(documentId);
+    const dialogConfig = new MatDialogConfig();
 
-    const dialogRef = this.dialog.open(EditPatientComponent);
+    dialogConfig.data = {
+      id: documentId,
+      data: documentData
+    };
+
+    const dialogRef = this.dialog.open(EditPatientComponent, dialogConfig);
 
     dialogRef.afterClosed();
   }

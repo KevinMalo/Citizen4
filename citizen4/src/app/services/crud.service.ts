@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 // Importamos angular firestore y angular collection
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
-
 @Injectable()
 export class CrudService {
 
@@ -45,6 +44,7 @@ export class CrudService {
     ciudad: string,
     sintomas: string,
     url: string}) {
+
     return this.afs.collection('patients').doc(documentId).set(data);
   }
 
