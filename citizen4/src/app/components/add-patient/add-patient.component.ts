@@ -10,6 +10,7 @@ import { CrudService } from '../../services/crud.service';
 })
 export class AddPatientComponent implements OnInit {
 
+  // Fuerza al usuario a escribir secuencialmente los datos
   isLinear = true;
 
   nombreFormGroup: FormGroup;
@@ -18,10 +19,10 @@ export class AddPatientComponent implements OnInit {
   sintomaFormGroup: FormGroup;
   urlFormGroup: FormGroup;
 
+  // Envía los datos del formulario a nuestro BD
   dataForm() {
 
-     // DATA
-
+     // Guarda los datos escritos en el formulario
      const DATA = {
       nombre: this.nombreFormGroup.value.nombre,
       documento: this.documentoFormGroup.value.documento,
@@ -30,6 +31,7 @@ export class AddPatientComponent implements OnInit {
       url: this.urlFormGroup.value.url
     };
 
+    // Envía los datos a nuestro CrudServices para que los envíe a FireStore
     this._crudService.createPatient(DATA).then(() => {
        console.log('Documento creado exitósamente!');
      }, (error) => {
